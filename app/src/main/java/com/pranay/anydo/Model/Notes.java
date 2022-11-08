@@ -11,18 +11,18 @@ public class Notes {
     public int id;
 
     @ColumnInfo(name = "name_title")
-    String notesTitle;
+    public String notesTitle;
 
     @ColumnInfo(name = "name_subtitle")
-    String notesSubTitle;
+    public String notesSubTitle;
 
     @ColumnInfo(name = "name")
-    String notes;
+    public String notes;
 
     @ColumnInfo(name = "name_priority")
-    String notesPriority;
+    public String notesPriority;
 
     @ColumnInfo(name = "name_Date")
-    String notesDate;
+    public String notesDate;
 
 }

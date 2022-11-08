@@ -1,7 +1,7 @@
 package com.pranay.anydo.ViewModel;
 
 import android.app.Application;
-import android.provider.ContactsContract;
+
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -23,13 +23,13 @@ public class NotesViewModel extends AndroidViewModel {
 
         getallNotes = repository.getallNotes;
     }
-    void insert(Notes notes){
+   public void insert(Notes notes){
         repository.insertNotes(notes);
     }
-    void delete(int id){
+   public void delete(int id){
         repository.deleteNotes(id);
     }
-    void update(Notes notes){
+   public void update(Notes notes){
         repository.updateNotes(notes);
     }
 }
