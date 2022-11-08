@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Any.do</string>
+    <string name="add_newnote_fab">add new notes\n</string>
 </resources>
