@@ -22,14 +22,17 @@ public class NotesRepository {
     }
 
    public void insertNotes(Notes notes){
-        notesDao.insertNotes(notes);
+        NotesDatabase.databaseWriteExecutor.execute(() -> notesDao.insertNotes(notes));
+
     }
 
    public void deleteNotes(int id){
-        notesDao.deleteNote(id);
+       NotesDatabase.databaseWriteExecutor.execute(() -> notesDao.deleteNote(id));
+
     }
    public void updateNotes(Notes notes){
-        notesDao.updateNotes(notes);
+       NotesDatabase.databaseWriteExecutor.execute(() -> notesDao.updateNotes(notes));
+
     }
 
 }

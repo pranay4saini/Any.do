@@ -70,7 +70,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/notes_data_editText"
             style="@style/general_edittext_style"
             android:layout_width="match_parent"
             android:layout_height="376dp"
