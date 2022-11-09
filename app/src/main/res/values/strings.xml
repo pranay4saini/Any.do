@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Any.do</string>
     <string name="add_newnote_fab">add new notes\n</string>
+    <string name="title_edittext_hint">Title…</string>
+    <string name="subtitle_editext_hint">Subtitle…</string>
+    <string name="notes_edittext">Notes</string>
+    <string name="priority_textview">Priority</string>
+    <string name="save_new_note">Save new note</string>
+    <string name="update_notes_button_description">Update notes</string>
 </resources>
