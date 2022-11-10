@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pranay.anydo.Activity.InsertNotesActivity;
 import com.pranay.anydo.Adapter.NotesAdapter;
+import com.pranay.anydo.Model.Notes;
 import com.pranay.anydo.ViewModel.NotesViewModel;
+
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,27 +44,76 @@ public class MainActivity extends AppCompatActivity {
         nofilter.setBackgroundResource(R.drawable.filter_selected_shape);
 
         nofilter.setOnClickListener(v -> {
+            loadData(0);
             hightolow.setBackgroundResource(R.drawable.filter_unselected_shape);
             lowtohigh.setBackgroundResource(R.drawable.filter_unselected_shape);
             nofilter.setBackgroundResource(R.drawable.filter_selected_shape);
         });
         hightolow.setOnClickListener(v -> {
+            loadData(1);
             hightolow.setBackgroundResource(R.drawable.filter_selected_shape);
             lowtohigh.setBackgroundResource(R.drawable.filter_unselected_shape);
             nofilter.setBackgroundResource(R.drawable.filter_unselected_shape);
         });
         lowtohigh.setOnClickListener(v -> {
+            loadData(2);
             hightolow.setBackgroundResource(R.drawable.filter_unselected_shape);
             lowtohigh.setBackgroundResource(R.drawable.filter_selected_shape);
             nofilter.setBackgroundResource(R.drawable.filter_unselected_shape);
         });
         addNewNotes.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, InsertNotesActivity.class)));
-        notesViewModel.getallNotes.observe(this, notes -> {
 
-            notesRecycler.setLayoutManager(new GridLayoutManager(this, 2));
-            adapter = new NotesAdapter(MainActivity.this, notes);
-            notesRecycler.setAdapter(adapter);
+         notesViewModel.getallNotes.observe(this, new Observer<List<Notes>>() {
+             @Override
+             public void onChanged(List<Notes> notes) {
 
-        });
+                 setAdapter(notes);
+             }
+
+
+            });
+
+
+    }
+
+    private void loadData(int i) {
+        if (i == 0) {
+            notesViewModel.getallNotes.observe(this, new Observer<List<Notes>>() {
+                @Override
+                public void onChanged(List<Notes> notes) {
+
+                    setAdapter(notes);
+                }
+
+
+            });
+
+        } else if (i == 1) {
+            notesViewModel.hightolow.observe(this, new Observer<List<Notes>>() {
+                @Override
+                public void onChanged(List<Notes> notes) {
+
+                    setAdapter(notes);
+                }
+
+
+            });
+        } else if (i == 2) {
+            notesViewModel.lowtohigh.observe(this, new Observer<List<Notes>>() {
+                @Override
+                public void onChanged(List<Notes> notes) {
+
+                    setAdapter(notes);
+                }
+
+
+            });
+        }
+    }
+
+    public void setAdapter(List<Notes> notes){
+        notesRecycler.setLayoutManager(new GridLayoutManager(this, 2));
+        adapter = new NotesAdapter(MainActivity.this, notes);
+        notesRecycler.setAdapter(adapter);
     }
 }
