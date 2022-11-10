@@ -4,8 +4,65 @@
     xmlns:tools="http://schemas.android.com/tools"
 
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E8E8E8">
 
+    <LinearLayout
+        android:id="@+id/filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="1dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/notes_recyclerview"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="6dp"
+                android:background="@drawable/filter"/>
+
+        <TextView
+            android:id="@+id/noFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Filter"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:background="@drawable/filter_unselected_shape"/>
+        <TextView
+            android:id="@+id/highToLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="High to Low"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:layout_margin="7dp"
+            android:fontFamily="@font/product_sans_regular"
+            android:background="@drawable/filter_unselected_shape"/>
+        <TextView
+            android:id="@+id/lowToHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/product_sans_regular"
+            android:text="Low to High"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:layout_margin="7dp"
+            android:background="@drawable/filter_unselected_shape"/>
+
+    </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_notes_fab"
         android:layout_width="wrap_content"
@@ -27,6 +84,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/filter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
