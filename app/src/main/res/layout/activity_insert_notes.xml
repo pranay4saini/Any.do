@@ -57,7 +57,7 @@
             android:layout_height="20dp"
             android:layout_margin="10dp"
             android:background="@drawable/green_shape"
-            android:src="@drawable/baseline_done_24"
+
             android:contentDescription="@string/green_priority_image_contntdiscripption" />
 
         <ImageView

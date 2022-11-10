@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/title_edittext"
+            android:id="@+id/update_title_edittext"
             style="@style/general_edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/subtitle_edittext"
+            android:id="@+id/update_subtitle_edittext"
             style="@style/general_edittext_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,17 +52,20 @@
                 android:textSize="16sp" />
 
             <ImageView
+                android:id="@+id/update_green_priority"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
-                android:background="@drawable/green_shape"
-                android:src="@drawable/baseline_done_24"/>
+                android:background="@drawable/green_shape"/>
+
             <ImageView
+                android:id="@+id/update_yellow_priority"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/yellow_shape" />
             <ImageView
+                android:id="@+id/update_red_priority"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_margin="10dp"
@@ -70,7 +73,7 @@
         </LinearLayout>
 
         <EditText
-            android:id="@+id/notes_data_editText"
+            android:id="@+id/update_notes_data_editText"
             style="@style/general_edittext_style"
             android:layout_width="match_parent"
             android:layout_height="376dp"

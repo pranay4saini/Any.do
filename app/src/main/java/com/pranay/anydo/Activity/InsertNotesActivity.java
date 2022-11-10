@@ -59,7 +59,7 @@ public class InsertNotesActivity extends AppCompatActivity {
             subtitle = binding.subtitleEdittext.getText().toString();
             notes = binding.notesDataEditText.getText().toString();
 
-            CreaeteNotes(title,subtitle,notes);
+            CreateNotes(title,subtitle,notes);
 
         });
 
@@ -67,9 +67,9 @@ public class InsertNotesActivity extends AppCompatActivity {
 
     }
 
-    private void CreaeteNotes(String title, String subtitle, String notes) {
+    private void CreateNotes(String title, String subtitle, String notes) {
         Date date = new Date();
-        CharSequence sequence = DateFormat.format("MMMM d,YYYY",date.getTime());
+        CharSequence sequence = DateFormat.format("MMMM d,yyyy",date.getTime());
         Notes notesVar = new Notes();
         notesVar.notesTitle = title;
         notesVar.notesSubTitle = subtitle;

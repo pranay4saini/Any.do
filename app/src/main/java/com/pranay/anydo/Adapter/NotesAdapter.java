@@ -1,5 +1,6 @@
 package com.pranay.anydo.Adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pranay.anydo.Activity.UpdateNotesActivity;
 import com.pranay.anydo.MainActivity;
 import com.pranay.anydo.Model.Notes;
 import com.pranay.anydo.R;
@@ -37,16 +39,30 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.notesViewhol
 
 
         Notes notePositionVar = notes.get(position);
-        if (Objects.equals(notePositionVar.notesPriority, "1")) {
+        if ("1".equals(notePositionVar.notesPriority)) {
             holder.notesPriority.setBackgroundResource(R.drawable.green_shape);
-        } else if (Objects.equals(notePositionVar.notesPriority, "2")) {
+        } else if ("2".equals(notePositionVar.notesPriority)) {
             holder.notesPriority.setBackgroundResource(R.drawable.yellow_shape);
-        } else if (Objects.equals(notePositionVar.notesPriority, "3")) {
+        } else if ("3".equals(notePositionVar.notesPriority)) {
             holder.notesPriority.setBackgroundResource(R.drawable.red_shape);
         }
         holder.title.setText(notePositionVar.notesTitle);
         holder.subtitle.setText(notePositionVar.notesSubTitle);
         holder.notesDate.setText(notePositionVar.notesDate);
+
+        holder.itemView.setOnClickListener(v -> {
+
+            Intent intent = new Intent(mainActivity, UpdateNotesActivity.class);
+
+            intent.putExtra("id",notePositionVar.id);
+            intent.putExtra("title",notePositionVar.notesTitle);
+            intent.putExtra("subtitle",notePositionVar.notesSubTitle);
+            intent.putExtra("priority",notePositionVar.notesPriority);
+            intent.putExtra("notes",notePositionVar.notes);
+
+            mainActivity.startActivity(intent);
+
+        });
 
     }
 
