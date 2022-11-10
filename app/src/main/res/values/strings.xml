@@ -7,4 +7,11 @@
     <string name="priority_textview">Priority</string>
     <string name="save_new_note">Save new note</string>
     <string name="update_notes_button_description">Update notes</string>
+    <string name="notes_entry_text">Write your notes here</string>
+    <string name="title_textview">Title</string>
+    <string name="subtitle_textview">subtitle</string>
+    <string name="date_textview">9 nov 2021</string>
+    <string name="green_priority_image_contntdiscripption">Green priority image</string>
+    <string name="yellow_priority_image_contentDescription">yellow priority image</string>
+    <string name="red_priority_image_contentDiscription">red priority image</string>
 </resources>

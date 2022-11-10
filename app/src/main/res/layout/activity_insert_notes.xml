@@ -52,33 +52,41 @@
             android:textSize="16sp" />
 
         <ImageView
+            android:id="@+id/green_priority"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="10dp"
             android:background="@drawable/green_shape"
-            android:src="@drawable/baseline_done_24"/>
+            android:src="@drawable/baseline_done_24"
+            android:contentDescription="@string/green_priority_image_contntdiscripption" />
+
         <ImageView
+            android:id="@+id/yellow_priority"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="10dp"
-            android:background="@drawable/yellow_shape" />
+            android:background="@drawable/yellow_shape"
+            android:contentDescription="@string/yellow_priority_image_contentDescription" />
+
         <ImageView
+            android:id="@+id/red_priority"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_margin="10dp"
-            android:background="@drawable/red_shape" />
+            android:background="@drawable/red_shape"
+            android:contentDescription="@string/red_priority_image_contentDiscription" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/notes_data_editText"
-        style="@style/general_edittext_style"
-        android:layout_width="match_parent"
-        android:layout_height="376dp"
-        android:ems="10"
-        android:gravity="top"
-        android:inputType="text"
-        android:text="@string/notes_edittext"
-        android:textAlignment="gravity" />
+        <EditText
+            android:id="@+id/notes_data_editText"
+            style="@style/general_edittext_style"
+            android:layout_width="match_parent"
+            android:layout_height="376dp"
+            android:ems="10"
+            android:gravity="top"
+            android:hint="@string/notes_entry_text"
+            android:inputType="text"
+            android:textAlignment="gravity" />
     </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
