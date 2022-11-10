@@ -1,19 +1,27 @@
 package com.pranay.anydo.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.pranay.anydo.Model.Notes;
 import com.pranay.anydo.R;
 import com.pranay.anydo.ViewModel.NotesViewModel;
 import com.pranay.anydo.databinding.ActivityUpdateNotesBinding;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class UpdateNotesActivity extends AppCompatActivity {
 
@@ -40,13 +48,13 @@ public class UpdateNotesActivity extends AppCompatActivity {
         binding.updateSubtitleEdittext.setText(updateSubtitle);
         binding.updateNotesDataEditText.setText(updateNotes);
 
-        if(updatePriority.equals("1")){
+        if(Objects.equals(updatePriority, "1")){
             binding.updateGreenPriority.setImageResource(R.drawable.baseline_done_24);
             
-        } else if (updatePriority.equals("2")) {
+        } else if (Objects.equals(updatePriority, "2")) {
             binding.updateYellowPriority.setImageResource(R.drawable.baseline_done_24);
             
-        } else if (updatePriority.equals("3")) {
+        } else if (Objects.equals(updatePriority, "3")) {
             binding.updateRedPriority.setImageResource(R.drawable.baseline_done_24);
 
 
@@ -100,5 +108,40 @@ public class UpdateNotesActivity extends AppCompatActivity {
         updatedNotes.notesDate = sequence.toString();
         notesViewModel.update(updatedNotes);
         finish();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.delete_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.ic_delete){
+
+            BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(UpdateNotesActivity.this,R.style.BottomSheetStyle);
+
+            View view = LayoutInflater.from(UpdateNotesActivity.this)
+                    .inflate(R.layout.delete_bottom_sheet,(LinearLayout)findViewById(R.id.bottom_sheet_layout));
+            bottomSheetDialog.setContentView(view);
+            bottomSheetDialog.show();
+
+            TextView yesDeleteTextView,noDeleteTextView;
+            yesDeleteTextView = view.findViewById(R.id.delete_yes_textview);
+            noDeleteTextView = view.findViewById(R.id.delete_no_textview);
+
+            yesDeleteTextView.setOnClickListener(v ->{
+                notesViewModel.delete(updateId);
+                finish();
+            });
+            noDeleteTextView.setOnClickListener(v -> {
+                bottomSheetDialog.dismiss();
+            });
+
+        }
+        return true;
     }
 }

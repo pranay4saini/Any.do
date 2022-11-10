@@ -10,4 +10,5 @@
         <item name="android:fontFamily">@font/product_sans_regular</item>
         <item name="android:padding">15dp</item>
     </style>
+
 </resources>
