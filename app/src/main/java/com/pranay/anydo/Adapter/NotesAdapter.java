@@ -14,18 +14,23 @@ import com.pranay.anydo.MainActivity;
 import com.pranay.anydo.Model.Notes;
 import com.pranay.anydo.R;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.notesViewholder> {
-    private MainActivity mainActivity;
+    private final MainActivity mainActivity;
     private List<Notes> notes;
 
     public NotesAdapter(MainActivity mainActivity, List<Notes> notes) {
 
         this.mainActivity = mainActivity;
         this.notes = notes;
+        List<Notes> completeNotes = new ArrayList<>(notes);
 
+    }
+    public void searchNotes(List<Notes> filterredNotes){
+        this.notes = filterredNotes;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -71,8 +76,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.notesViewhol
         return notes.size();
     }
 
-    public class notesViewholder extends RecyclerView.ViewHolder {
-        private TextView title, subtitle, notesDate;
+    public static class notesViewholder extends RecyclerView.ViewHolder {
+        private final TextView title;
+        private final TextView subtitle;
+        private final TextView notesDate;
          View notesPriority;
 
         public notesViewholder(@NonNull View itemView) {
